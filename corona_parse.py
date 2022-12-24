@@ -1,4 +1,4 @@
-@@ -1,65 +0,0 @@
+
 import os
 import pathlib
 import requests
@@ -30,7 +30,7 @@ def parse_page(response):
                          "html.parser")
     
     tags = soup.select_one('.d-map__indicator d-map__indicator_hospitalized')
-    
+    tags2 = tags
     #"#app  article  section:nth-child(2)  div.cv-section__content").find(
     #'cv-spread-overview')
     
@@ -59,8 +59,9 @@ if __name__ == "__main__":
     page_link=driver.page_source
     soup = BeautifulSoup(page_link,
                          features="html.parser")
-    tags = soup.select_one('.d-map__indicator d-map__indicator_hospitalized')
+    tags = soup.select_one('.d-map__list')
+    col_healed = tags.select('td')
     
-    print(soup)
+    print(col_healed)
 
 
